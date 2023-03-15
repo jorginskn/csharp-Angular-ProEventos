@@ -1,0 +1,11 @@
+ <!-- <h1>Eventos do components</h1>
+
+ <p><b>Tema:</b> {{eventos[0].Tema}}</p>
+ <p><b>Local:</b> {{eventos[0].Local}}</p> -->
+
+ <div *ngFor="let event of eventos">
+  <p><b>Tema:</b> {{event.Tema}}</p>
+  <p><b>Local:</b>{{event.Local}}</p>
+  <hr>
+
+ </div>
