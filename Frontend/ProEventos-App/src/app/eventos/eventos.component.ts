@@ -10,10 +10,19 @@ import { Event } from '../models/events.model';
 })
 export class EventosComponent implements OnInit {
   events?: Event[];
+  widhtImage:number = 50;
+  heightImage: number = 110;
+  marginImage: number = 5;
+  showImage: boolean = true;
+
   constructor(private event: EventosService) {}
 
   ngOnInit(): void {
     this.getEventos();
+  }
+
+  ShowImage(){
+    this.showImage = !this.showImage
   }
 
   getEventos() {

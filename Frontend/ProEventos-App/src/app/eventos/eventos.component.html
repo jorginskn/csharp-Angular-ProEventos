@@ -9,10 +9,13 @@
 </form>
 <table class="table table-striped">
 
-  <thead class="thead-dark">
+  <thead class="table-dark">
     <tr>
       <th>#</th>
-      <th>Imagem</th>
+      <th>
+        <button type="button" class="btn btn btn-outline-light btn-sm" (click)="ShowImage()">
+          {{showImage ? 'Ocultar Imagem' : "Ver Imagem "}}</button>
+      </th>
       <th>Tema</th>
       <th>Local</th>
       <th>Data</th>
@@ -26,18 +29,15 @@
     <tr *ngFor="let event of events">
       <td>{{event.eventoId}}</td>
       <td>
-        <img src="{{event.imageURL}}" alt="" class="event-image"
-        [style.widht.px]="50"
-        [style.height.px]="110"
-        [style.margin.px]="5">
-
+        <img src="{{event.imageURL}}" alt="" class="event-image" [collapse]="!showImage" [isAnimated]="true"
+          [style.widht.px]="widhtImage" [style.height.px]="heightImage" [style.margin.px]="marginImage">
       </td>
       <td>{{event.tema}}</td>
       <td>{{event.local}}</td>
       <td>{{event.dataEvento}}</td>
       <td>{{event.qtdPessoas}}</td>
       <td>{{event.lote}}</td>
-      <td></td>
+      <td>Opções</td>
     </tr>
   </tbody>
   <tfoot *ngIf="!events?.length">
