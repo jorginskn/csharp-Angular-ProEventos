@@ -9,7 +9,7 @@ import { Event } from '../models/events.model';
   styleUrls: ['./eventos.component.scss'],
 })
 export class EventosComponent implements OnInit {
-  eventos?: Event[];
+  events?: Event[];
   constructor(private event: EventosService) {}
 
   ngOnInit(): void {
@@ -18,8 +18,8 @@ export class EventosComponent implements OnInit {
 
   getEventos() {
     this.event.getEventosApi().subscribe((res: any) => {
-      this.eventos = res;
-      console.log(this.eventos);
+      this.events = res;
+
     });
   }
 }

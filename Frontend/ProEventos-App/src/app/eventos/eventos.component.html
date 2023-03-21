@@ -21,16 +21,30 @@
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+
+  <tbody *ngIf="events && events.length">
+    <tr *ngFor="let event of events">
+      <td>{{event.eventoId}}</td>
+      <td>
+        <img src="{{event.imageURL}}" alt="" class="event-image"
+        [style.widht.px]="50"
+        [style.height.px]="110"
+        [style.margin.px]="5">
+
+      </td>
+      <td>{{event.tema}}</td>
+      <td>{{event.local}}</td>
+      <td>{{event.dataEvento}}</td>
+      <td>{{event.qtdPessoas}}</td>
+      <td>{{event.lote}}</td>
       <td></td>
     </tr>
   </tbody>
+  <tfoot *ngIf="!events?.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhum Evento Encontrado!</h4>
+      </td>
+    </tr>
+  </tfoot>
 </table>
