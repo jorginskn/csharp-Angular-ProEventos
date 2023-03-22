@@ -1,12 +1,13 @@
 <h2>Eventos</h2>
 <hr>
 
-<form action="" class="form-inline">
+<div class="form-inline">
   <div class="form-group mb-2">
-    <input type="text" class="form-control mr-2" placeholder="buscar">
-    <button class="btn btn-outline-success">Buscar</button>
+    <label class="mr-2">Filtro:</label>
+    <input type="text" class="form-control mr-2" placeholder="buscar" [(ngModel)]="filtroLista">
   </div>
-</form>
+</div>
+<h3>Filtro : {{filtroLista}}</h3>
 <table class="table table-striped">
 
   <thead class="table-dark">
@@ -37,7 +38,10 @@
       <td>{{event.dataEvento}}</td>
       <td>{{event.qtdPessoas}}</td>
       <td>{{event.lote}}</td>
-      <td>Opções</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
     </tr>
   </tbody>
   <tfoot *ngIf="!events?.length">
